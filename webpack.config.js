@@ -48,7 +48,7 @@ plugins.push(new webpack.optimize.UglifyJsPlugin({
 }));
 
 module.exports = {
-	//devtool: "source-map",
+//	devtool: "source-map",
 	resolve: {
 		//参数名的自动补全，现在可以写 require('file') 代替 require('file.js')
 		extensions: ['', '.js', '.json', '.coffee', '.css', '.jsx', '.vue'],

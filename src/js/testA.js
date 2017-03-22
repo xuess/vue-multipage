@@ -10,5 +10,5 @@ require('../css/testAsass.scss');
 $(function(){
 	console.log('this testA.js!!');
 //	console.log('dialog==',dialog);
-	$('h1').html('jquery 修改了内容！！');
+	$('h1').html('jquery 修改了内容！！').hide('slow').show('slow');
 });
