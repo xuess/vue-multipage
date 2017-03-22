@@ -1,2 +1,17 @@
 # b-tf8-h5
-项目搭建，一个学习的过程！
+
+### 使用过程
+> 1. npm install 
+> 2. npm run dev
+> 3. npm run server
+
+
+```
+
+npm install 
+
+npm run dev
+
+npm run server
+
+```
