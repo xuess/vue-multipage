@@ -81,5 +81,13 @@ module.exports = {
 			{ test: /\.html$/, loader: 'html' }
 		]
 	},
-	plugins: plugins
+	plugins: plugins,
+	
+	devServer:{
+        contentBase: './dist/',  //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
+        devtool: 'eval',
+        hot: true,        //自动刷新
+        inline: true,    
+        port: 3005        
+    },
 };

@@ -4,8 +4,8 @@
   "description": "淘粉吧H5工程",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --content-base dist/",
-    "test": "test"
+	"server": "webpack-dev-server  --inline --colors",
+    "dev": "webpack -w --display-error-details --progress"
   },
   "repository": {
     "type": "git",
@@ -55,6 +55,5 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
-  },
-  "dependencies": {}
+  }
 }

@@ -14,5 +14,5 @@ $(function(){
 	$('h1').html('jquery 修改了内容！！').hide('slow').show('slow');
 	console.log(artTemplate);
 	console.log(dialog);
-	console.log(md5('xxxx'));
+	console.log(md5('test'));
 });
