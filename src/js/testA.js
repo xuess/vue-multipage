@@ -4,8 +4,8 @@
  */
 //var dialog = require('dialog');
 //require('../css/testA.css');
-//require('../css/testAless.less');
-//require('../css/testAsass.scss');
+require('../css/testAless.less');
+require('../css/testAsass.scss');
 
 $(function(){
 	console.log('this testA.js!!');
