@@ -14,6 +14,9 @@ module.exports = {
     getEntrys: function(entryObj) {
         var url = this.ROOT_PATH+this.RELATIVE_URL;
         this.traverseFiles(url, entryObj);
+        console.log('----------------entryList---------------');
+        console.log(entryObj);
+        console.log('----------------entryList---------------');
         return entryObj;
     },
 
@@ -30,7 +33,10 @@ module.exports = {
             } else if(filename.indexOf(".") != 0 && filename.indexOf(".js") > -1) {
                 var property = filename.substr(0, filename.lastIndexOf("."));
                 var propertyValue = itemPath.replace(self.ROOT_PATH, ".");
-                entryObj[property] = [propertyValue];
+//              entryObj[property] = [propertyValue];
+                //文件名重新定义
+                var nameValue = propertyValue.substring(propertyValue.indexOf('js/')+3,propertyValue.indexOf('.js'));
+                entryObj[nameValue] = [propertyValue];
             }
         });
     },
