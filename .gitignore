@@ -10,7 +10,8 @@
 
 .DS_Store
 node_modules/
-dist/
+dist/css
+dist/js
 npm-debug.log
 .idea
 *.iml
