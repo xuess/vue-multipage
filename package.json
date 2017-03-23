@@ -4,8 +4,9 @@
   "description": "淘粉吧H5工程",
   "main": "index.js",
   "scripts": {
-    "server": "webpack-dev-server  --inline --colors",
-    "dev": "webpack -w --display-error-details --progress"
+    "start": "webpack-dev-server --config webpack.config.dev.js --inline --port 8080 --open",
+    "dev": "webpack -w --display-error-details --progress",
+    	"build": "webpack -p --display-error-details --progress"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
     "style-loader": "^0.16.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.3.1",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "webpack-merge": "^4.1.0"
   }
 }

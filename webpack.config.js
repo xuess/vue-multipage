@@ -3,7 +3,7 @@
  * date 2017-03-22
  * webpack配置
  */
-var path = require('path'),
+const path = require('path'),
 	webpack = require('webpack'),
 	fs = require('fs'),
 	//打包html
@@ -24,25 +24,25 @@ var path = require('path'),
 alias.init(ROOT_PATH, ["/src/js/commons"], ALIAS_IGNORE_DIRS);
 entry.init(ROOT_PATH, ["/src/js"], ENTRY_IGNORE_DIRS);
 
-var extractCSS = new ExtractTextPlugin({
+const extractCSS = new ExtractTextPlugin({
 	filename: "css/[name].css"
 });
 //var extractCSS = new ExtractTextPlugin('css/[name].css?[contenthash]')
-var cssLoader = extractCSS.extract({
+const cssLoader = extractCSS.extract({
 	fallback: "style-loader",
 	use: ['css-loader']
 });
-var sassLoader = extractCSS.extract({
+const sassLoader = extractCSS.extract({
 	fallback: "style-loader",
 	use: ['css-loader', 'sass-loader']
 });
-var lessLoader = extractCSS.extract({
+const lessLoader = extractCSS.extract({
 	fallback: "style-loader",
 	use: ['css-loader', 'less-loader']
 });
 
 //插件配置
-var plugins = [];
+const plugins = [];
 plugins.push(
 	extractCSS,
 	///webpack.ProvidePlugin插件作用是jquery变成全局，所以不需要引用就能在js文件中运用
@@ -60,20 +60,20 @@ plugins.push(
 		mangle: {
 			except: ['$', 'jQuery']
 		},
-		sourceMap: true,
+//		sourceMap: true,
 		//警告 false=不打印
 		compress: {
 			warnings: false
 		}
-	}),
-	//压缩
-	new webpack.LoaderOptionsPlugin({
-		minimize: true
 	})
+//	//压缩
+//	new webpack.LoaderOptionsPlugin({
+//		minimize: true
+//	})
 );
 
 module.exports = {
-	devtool: "source-map",
+//	devtool: "source-map",
 	resolve: {
 		modules: [
 			path.join(__dirname, "src"),
