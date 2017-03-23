@@ -54,18 +54,18 @@ plugins.push(
 	new CommonsChunkPlugin({
 		name: 'libs',
 		minChunks: Infinity
-	}),
-	//混淆压缩，忽略$ jQuery
-	new webpack.optimize.UglifyJsPlugin({
-		mangle: {
-			except: ['$', 'jQuery']
-		},
-//		sourceMap: true,
-		//警告 false=不打印
-		compress: {
-			warnings: false
-		}
 	})
+//	//混淆压缩，忽略$ jQuery
+//	new webpack.optimize.UglifyJsPlugin({
+//		mangle: {
+//			except: ['$', 'jQuery']
+//		},
+////		sourceMap: true,
+//		//警告 false=不打印
+//		compress: {
+//			warnings: false
+//		}
+//	})
 //	//压缩
 //	new webpack.LoaderOptionsPlugin({
 //		minimize: true
@@ -82,9 +82,10 @@ module.exports = {
 		//取模块
 		alias: alias.getAlias({
 //			jquery: path.resolve(__dirname, "./node_modules/jquery/dist/jquery.js")
+			vue : ROOT_PATH + '/node_modules/vue/dist/vue.min.js'
 		}),
 		//参数名的自动补全，现在可以写 require('file') 代替 require('file.js')
-		extensions: ['.js', '.pug', '.css', '.scss', '.sass', '.less'],
+		extensions: ['.js', '.pug', '.css', '.scss', '.sass', '.less','.vue'],
 		unsafeCache: false
 	},
 
