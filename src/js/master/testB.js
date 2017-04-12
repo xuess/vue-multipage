@@ -4,6 +4,8 @@
  */
 var dialog = require('dialog');
 var artTemplate = require('artTemplate');
+require('../../css/testAsass');
+
 
 $(function(){
 	console.log('this testA.js!!，is do it！！');
