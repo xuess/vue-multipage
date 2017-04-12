@@ -15,18 +15,23 @@ const path = require('path'),
 	ROOT_PATH = path.resolve(__dirname), //根目录
 
 	OUT_PATH = ROOT_PATH + "/dist/", //输出目录
-	SRC_PATH = ROOT_PATH + "/src/js", //源代码目录
+	SRC_PATH = ROOT_PATH + "/src/", //源代码目录
 	ALIAS_IGNORE_DIRS = [""], //忽略目录
 	ENTRY_IGNORE_DIRS = ["commons"], //忽略目录
 	alias = require('./config/alias'),
 	entry = require('./config/entry');
 
-alias.init(ROOT_PATH, ["/src/js/commons"], ALIAS_IGNORE_DIRS);
-entry.init(ROOT_PATH, ["/src/js"], ENTRY_IGNORE_DIRS);
+alias.init(ROOT_PATH, ["/src/commons/js"], ALIAS_IGNORE_DIRS);
+entry.init(ROOT_PATH, ["/src"], ENTRY_IGNORE_DIRS);
 
 const extractCSS = new ExtractTextPlugin({
-	filename: "css/[name].css"
+	filename: (getPath) => {
+      return getPath('[name].css').replace('js', 'css');
+    }
 });
+//const extractCSS = new ExtractTextPlugin({
+//	filename: "[name].css"
+//});
 //var extractCSS = new ExtractTextPlugin('css/[name].css?[contenthash]')
 const cssLoader = extractCSS.extract({
 	fallback: "style-loader",
@@ -49,12 +54,12 @@ plugins.push(
 	new webpack.ProvidePlugin({
 		"jQuery": "jquery",
 		"$": "jquery"
-	}),
-	//打包公用库
-	new CommonsChunkPlugin({
-		name: 'libs',
-		minChunks: Infinity
 	})
+//	//打包公用库
+//	new CommonsChunkPlugin({
+//		name: 'libs',
+//		minChunks: Infinity
+//	})
 //	//混淆压缩，忽略$ jQuery
 //	new webpack.optimize.UglifyJsPlugin({
 //		mangle: {
@@ -89,11 +94,11 @@ module.exports = {
 		unsafeCache: false
 	},
 
-	entry: entry.getEntrys({ 'libs': ['jquery'] }),
+	entry: entry.getEntrys({ 'commons/libs': ['jquery'] }),
 	output: {
 		path: OUT_PATH, //文件输出目录
 		publicPath: OUT_PATH, //用于配置文件发布路径，如CDN或本地服务器
-		filename: 'js/[name].js' //根据入口文件输出的对应多个文件名
+		filename: '[name].js' //根据入口文件输出的对应多个文件名
 	},
 	module: {
 		rules: [

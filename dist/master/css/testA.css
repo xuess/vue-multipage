@@ -1,0 +1,13 @@
+h1 {
+  background-color: red; }
+* {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: #ccc;
+}
+body {
+  font-size: 12px;
+  color: #000;
+}

@@ -36,7 +36,8 @@ module.exports = {
 //              var propertyValue = itemPath.replace(self.ROOT_PATH, ".");
 //              entryObj[property] = [propertyValue];
                 //文件名重新定义
-                var nameValue = propertyValue.substring(propertyValue.indexOf('js/')+3,propertyValue.indexOf('.js'));
+//              var nameValue = propertyValue.substring(propertyValue.indexOf('js/')+3,propertyValue.indexOf('.js'));
+                var nameValue = propertyValue.substring(propertyValue.indexOf('src/')+4,propertyValue.indexOf('.js'));
                 entryObj[nameValue] = [propertyValue];
             }
         });
