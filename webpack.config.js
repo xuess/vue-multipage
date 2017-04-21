@@ -7,7 +7,7 @@ const path = require('path'),
 	webpack = require('webpack'),
 	fs = require('fs'),
 	//打包html
-	//	HtmlWebpackPlugin = require('html-webpack-plugin'),
+	HtmlWebpackPlugin = require('html-webpack-plugin'),
 	//独立打包样式文件
 	ExtractTextPlugin = require("extract-text-webpack-plugin"),
 	//公共模块单独打包
@@ -19,10 +19,12 @@ const path = require('path'),
 	ALIAS_IGNORE_DIRS = [""], //忽略目录
 	ENTRY_IGNORE_DIRS = ["commons"], //忽略目录
 	alias = require('./config/alias'),
+	entryHtml = require('./config/entryHtml'),
 	entry = require('./config/entry');
 
 alias.init(ROOT_PATH, ["/src/commons/js"], ALIAS_IGNORE_DIRS);
 entry.init(ROOT_PATH, ["/src"], ENTRY_IGNORE_DIRS);
+entryHtml.init(ROOT_PATH, ["/src"], []);
 
 const extractCSS = new ExtractTextPlugin({
 	filename: (getPath) => {
@@ -45,6 +47,38 @@ const lessLoader = extractCSS.extract({
 	fallback: "style-loader",
 	use: ['css-loader', 'less-loader']
 });
+
+//设置html 文件输出
+var html_plugins = function () {
+    var entryHtmlList = entryHtml.getEntrys({});
+    var r = []
+    var entriesFiles =  entry.getEntrys({});
+    console.log('----0000000000000000000000----')
+    for (let temp in entryHtmlList) {
+    		var filePath = entryHtmlList[temp];
+    		var filename = temp;
+        
+        var conf = {
+            template: filePath,
+//          template: 'html!'+filePath,
+            filename: filename + '.html',
+            inject: false 
+        }
+        console.log('conf i = ',conf);
+        //如果和入口js文件同名
+//      if (filename in entriesFiles) {
+//          conf.inject = 'body'
+//          conf.chunks = ['vendor', filename]
+//      }
+        //跨页面引用，如pageA,pageB 共同引用了common-a-b.js，那么可以在这单独处理
+        //if(pageA|pageB.test(filename)) conf.chunks.splice(1,0,'common-a-b')
+        r.push(new HtmlWebpackPlugin(conf))
+    }
+    console.log('r====',r);
+    return r
+}
+
+
 
 //插件配置
 const plugins = [];
@@ -98,7 +132,8 @@ module.exports = {
 	output: {
 		path: OUT_PATH, //文件输出目录
 		publicPath: OUT_PATH, //用于配置文件发布路径，如CDN或本地服务器
-		filename: '[name].js' //根据入口文件输出的对应多个文件名
+		filename: '[name].js' //根据入口文件输出的对应多个文件名,
+//		publicPath: '/'
 	},
 	module: {
 		rules: [
@@ -107,10 +142,17 @@ module.exports = {
 			{ test: /\.less$/, loader: lessLoader },
 			{ test: /\.(png|jpg)$/, loader: 'url-loader' },
 			{ test: /\.vue$/, loader: 'vue-loader' },
-			{ test: /\.html$/, loader: 'html' }
+			{ test: /\.html$/, loader: 'html-loader',
+			options: {
+				minimize: true,
+//				removeComments: false,
+//				collapseWhitespace: false,
+//				removeAttributeQuotes: false,
+			} 
+			}
 		]
 	},
-	plugins: plugins
+	plugins: plugins.concat(html_plugins())
 	//	,
 	//	
 	//	devServer:{
