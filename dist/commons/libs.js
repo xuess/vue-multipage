@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/Users/shanshanxue/Documents/workspace/b-tf8-h5/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 24);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -9890,7 +9890,7 @@ return jQuery;
 
 /***/ }),
 
-/***/ 24:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(0);

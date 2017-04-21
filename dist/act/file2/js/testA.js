@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/Users/shanshanxue/Documents/workspace/b-tf8-h5/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 33);
+/******/ 	return __webpack_require__(__webpack_require__.s = 31);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -13754,18 +13754,16 @@ e.data.keepAlive&&pe(e.componentInstance,!0)},destroy:function(e){e.componentIns
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 18 */,
-/* 19 */
+/* 18 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
+/* 19 */,
 /* 20 */,
 /* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {/**
@@ -13778,8 +13776,8 @@ var Vue = __webpack_require__(17);
 var hello = __webpack_require__(11);
 var artTemplate = __webpack_require__(1);
 //require('../css/testA.css');
-__webpack_require__(28);
-__webpack_require__(19);
+__webpack_require__(27);
+__webpack_require__(18);
 
 $(function() {
 	console.log('this testA.js!!，is do it！！');
@@ -13802,23 +13800,23 @@ $(function() {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+/* 23 */,
+/* 24 */,
 /* 25 */,
 /* 26 */,
-/* 27 */,
-/* 28 */
+/* 27 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
+/* 28 */,
 /* 29 */,
 /* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(24);
+module.exports = __webpack_require__(22);
 
 
 /***/ })

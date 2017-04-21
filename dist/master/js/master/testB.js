@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/Users/shanshanxue/Documents/workspace/b-tf8-h5/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 22);
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -9891,13 +9891,6 @@ return jQuery;
 /***/ }),
 
 /***/ 1:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/*!art-template - Template Engine | http://aui.github.com/artTemplate/*/
@@ -9906,15 +9899,14 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!art-template - Template Engine | http://aui
 
 /***/ }),
 
-/***/ 22:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 19:
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__(5);
-
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*! artDialog v6.0.2 | https://github.com/aui/artDialog */
@@ -11202,16 +11194,16 @@ module.exports = window.dialog;
 
 /***/ }),
 
-/***/ 5:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {/**
  * xuess
  * 测试JS A
  */
-var dialog = __webpack_require__(3);
-var artTemplate = __webpack_require__(2);
-__webpack_require__(1);
+var dialog = __webpack_require__(2);
+var artTemplate = __webpack_require__(1);
+__webpack_require__(19);
 
 
 $(function(){
@@ -11222,6 +11214,14 @@ $(function(){
 });
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 32:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(23);
+
 
 /***/ })
 
