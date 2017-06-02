@@ -2,25 +2,22 @@
  * xuess
  * 测试JS A
  */
-var dialog = require('dialog');
-var Vue = require('vue');
-//vue 模块
-var hello = require('hello');
-var artTemplate = require('artTemplate');
+ import Vue from 'vue';
+ import hello from 'hello';
+ import artTemplate from 'artTemplate';
 //require('../css/testA.css');
 require('../css/testAless');
 require('../css/testAsass');
 
 $(function() {
-	console.log('this testA.js!!，is do it！！');
+//	console.log('this testA.js!!，is do it！！');
 	$('h1').html('jquery 修改了内容！！').hide('slow').show('slow').html('jquery 修改8次修改');
-	console.log(artTemplate);
-	console.log(dialog);
-	console.log(Vue);
+//	console.log(artTemplate);
+//	console.log(Vue);
 	
 	
 	new Vue({
-		el: '#main',
+		el: '#mainTest',
 		data: {
 			message: "Hello Vue"
 		},
