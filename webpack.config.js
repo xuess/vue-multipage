@@ -5,15 +5,15 @@
  */
 const path = require('path'),
 	webpack = require('webpack'),
-	fs = require('fs'),
+	yargs = require('yargs').argv,
 	//打包html
 	HtmlWebpackPlugin = require('html-webpack-plugin'),
 	//独立打包样式文件
 	ExtractTextPlugin = require("extract-text-webpack-plugin"),
 	//公共模块单独打包
 	CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin,
+	
 	ROOT_PATH = path.resolve(__dirname), //根目录
-
 	OUT_PATH = ROOT_PATH + "/dist/", //输出目录
 	SRC_PATH = ROOT_PATH + "/src/", //源代码目录
 	ALIAS_IGNORE_DIRS = [""], //忽略目录
@@ -29,12 +29,13 @@ entryHtml.init(ROOT_PATH, ["/src"], []);
 const extractCSS = new ExtractTextPlugin({
 	filename: (getPath) => {
       return getPath('[name].css').replace('js', 'css');
-    }
+   },
+   	// Extract from all additional chunks too (by default it extracts only from the initial chunk(s))
+	allChunks: true,
+	// 禁用插件，用于热加载
+	disable: true
 });
-//const extractCSS = new ExtractTextPlugin({
-//	filename: "[name].css"
-//});
-//var extractCSS = new ExtractTextPlugin('css/[name].css?[contenthash]')
+
 const cssLoader = extractCSS.extract({
 	fallback: "style-loader",
 	use: ['css-loader']
