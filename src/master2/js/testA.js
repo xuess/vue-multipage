@@ -17,7 +17,7 @@ require('../css/testAless');
 	new Vue({
 		el: '#mainTest',
 		data: {
-			message: "Hello Vue！！"
+			message: "Hello Vue3！！"
 		},
 		components: {
 			hello: hello

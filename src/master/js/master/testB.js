@@ -4,7 +4,7 @@
  */
 var dialog = require('dialog');
 var artTemplate = require('artTemplate');
-require('../../css/testAsass');
+require('../../css/testAless');
 
 
 $(function(){
